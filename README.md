@@ -1,6 +1,19 @@
-# safecall
-Safecall is a mobile application designed to provide intelligent personal safety by automatically detecting and managing critical situations such as physical assaults, strokes, and severe medical emergencies. The user can discreetly trigger an alert through a system-level action (for example, double pressing the phone’s power button) or manually within the app. Once activated, the mobile app automatically records audio and video for a predefined duration and securely transmits the data to a remote server, where an artificial intelligence system analyzes distress indicators such as screams, violent movements, sudden falls, speech impairment, or prolonged immobility to determine whether the situation represents a real emergency or an accidental trigger.
+# safecall frontend
 
-If the emergency is confirmed, the app automatically identifies the most appropriate response service (police, ambulance, or fire department), transmits real-time geolocation data, and immediately notifies the user’s selected emergency contacts. The primary objective is to minimize the delay between the incident and professional intervention while reducing false positives through a confidence scoring mechanism that ensures reliable and proportionate decision-making.
+Safecall is a mobile application designed to provide intelligent personal safety by automatically detecting and managing critical situations such as physical assaults, strokes, and severe medical emergencies.
 
-In cases where direct internet connectivity is unavailable, the project envisions a mesh-based local transmission system that allows the mobile app to route emergency data to one of our dedicated centers connected to the internet. These centers then securely forward the information to the AI analysis server and the relevant authorities. This approach enhances the resilience of the mobile safety system in remote areas or during network outages, while maintaining centralized control and secure data handling.
+## Get started
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Start the app
+
+```bash
+npx expo start
+```
+
+In the output, you can open the app in Expo Go, Android emulator, iOS simulator, or a development build.
