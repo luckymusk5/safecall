@@ -1,19 +1,25 @@
-# safecall frontend
+# Safecall UI
 
-Safecall is a mobile application designed to provide intelligent personal safety by automatically detecting and managing critical situations such as physical assaults, strokes, and severe medical emergencies.
+Refonte UI mobile de Safecall avec un style visuel moderne inspire des applications de mobilite premium.
+Safecall vise a detecter et gerer des situations critiques (agressions physiques, AVC, urgences medicales severes) en declenchant rapidement une alerte.
 
-## Get started
+- Home: ecran alerte avec hero card, bouton SOS, statuts systeme.
+- Centre: tableau de supervision avec metriques, zone prioritaire et timeline.
+- Navigation: tab bar flottante, labels FR, icones orientes securite.
 
-1. Install dependencies
+## Lancer le projet
 
 ```bash
 npm install
+npm run start
 ```
 
-2. Start the app
+Ensuite:
 
-```bash
-npx expo start
-```
+- `w` pour le web
+- `a` pour Android
+- scanner le QR avec Expo Go
 
-In the output, you can open the app in Expo Go, Android emulator, iOS simulator, or a development build.
+## Portee de cette iteration
+
+Cette version touche uniquement l interface utilisateur (UI).

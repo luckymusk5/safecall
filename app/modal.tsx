@@ -7,9 +7,15 @@ import { ThemedView } from '@/components/themed-view';
 export default function ModalScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
+      <ThemedText type="title" style={styles.title}>
+        Protocole Safecall
+      </ThemedText>
+      <ThemedText style={styles.text}>
+        En cas d activation, l application capture les preuves audio-video et demarre
+        automatiquement la verification IA avant escalation.
+      </ThemedText>
       <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
+        <ThemedText type="link">Retour a l accueil</ThemedText>
       </Link>
     </ThemedView>
   );
@@ -18,12 +24,20 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    padding: 24,
+    gap: 12,
+  },
+  title: {
+    fontSize: 30,
+    lineHeight: 34,
+  },
+  text: {
+    color: '#5b6663',
+    lineHeight: 22,
   },
   link: {
-    marginTop: 15,
+    marginTop: 8,
     paddingVertical: 15,
   },
 });
