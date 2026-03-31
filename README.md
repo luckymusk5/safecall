@@ -1,4 +1,4 @@
-# 🚨 SafeCall 
+#  SafeCall 
 
 <p align="center">
   <img src="ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
@@ -14,13 +14,13 @@
 
 ---
 
-## 🧠 Présentation
+##  Présentation
 
 **SafeCall** est une API intelligente qui analyse des vidéos et audios afin de détecter automatiquement des situations critiques comme la violence ou les urgences médicales.
 
 ---
 
-## 🧩 Use Case
+##  Use Case
 
 <p align="center">
   <img src="use_case.png" alt="Use Case SafeCall" width="850"/>
@@ -28,21 +28,21 @@
 
 Le système suit ce flux :
 
-- 📥 L’utilisateur envoie une vidéo ou un audio
-- ⚙️ Le backend analyse le contenu
-- 🔍 Recherche de similarité dans la base
-- 🧠 Classification intelligente
-- 📤 Retour du résultat avec un score de confiance
+-  L’utilisateur envoie une vidéo ou un audio
+-  Le backend analyse le contenu
+-  Recherche de similarité dans la base
+-  Classification intelligente
+-  Retour du résultat avec un score de confiance
 
 ---
 
-## 🧠 Architecture détaillée
+##  Architecture détaillée
 
 <p align="center">
   <img src="ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
 </p>
 
-### 🔄 Pipeline complet
+###  Pipeline complet
 
 1. **Entrée**
    - Vidéo / audio uploadé via API
@@ -72,7 +72,7 @@ Le système suit ce flux :
 
 ---
 
-## 🛠️ Stack technique
+##  Stack technique
 
 - Python
 - Flask
@@ -85,11 +85,11 @@ Le système suit ce flux :
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ```bash
 pip install -r requirement.txt
-🚀 Lancement
+ Lancement
 docker-compose up -d
 python weaviate1.py
 python safecallback.py
@@ -97,7 +97,7 @@ python safecallback.py
 curl.exe "http://localhost:5000/health"
 Classification
 curl.exe -X POST "http://localhost:5000/classify-action" -F "file=@video.mp4"
- 📤 Exemple de réponse
+ Exemple de réponse
  {
   "success": true,
   "file": "exemple.mp4",
@@ -111,7 +111,7 @@ curl.exe -X POST "http://localhost:5000/classify-action" -F "file=@video.mp4"
     }
   ]
 }
-📊 Analyse par similarité
+ Analyse par similarité
 
 Le système fonctionne avec une logique vectorielle :
 
@@ -119,7 +119,7 @@ Le système fonctionne avec une logique vectorielle :
 🟡 Moyenne → incertitude
 🔴 Faible → faible confiance
 
-👉 Plus la distance est faible, plus le cas est similaire.
+ Plus la distance est faible, plus le cas est similaire.
 
 📝 Notes
 Le premier appel peut être lent (chargement des modèles)
