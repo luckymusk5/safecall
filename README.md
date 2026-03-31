@@ -1,4 +1,4 @@
-# 🚨 SafeCall Backend
+# 🚨 SafeCall 
 
 <p align="center">
   <img src="ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
