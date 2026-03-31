@@ -39,7 +39,7 @@ Le système suit ce flux :
 ## 🧠 Architecture détaillée
 
 <p align="center">
-  <img src="image/ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
+  <img src="ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
 </p>
 
 ### 🔄 Pipeline complet
