@@ -1,7 +1,7 @@
 # 🚨 SafeCall Backend
 
 <p align="center">
-  <img src="image/ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
+  <img src="ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 ## 🧩 Use Case
 
 <p align="center">
-  <img src="image/use_case.png" alt="Use Case SafeCall" width="850"/>
+  <img src="use_case.png" alt="Use Case SafeCall" width="850"/>
 </p>
 
 Le système suit ce flux :
