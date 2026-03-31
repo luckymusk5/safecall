@@ -1,117 +1,128 @@
-# SafeCall Backend
+# 🚨 SafeCall Backend
 
-Safecall is a mobile application designed to provide intelligent personal safety by automatically detecting and managing critical situations such as physical assaults, strokes, and severe medical emergencies.
+<p align="center">
+  <img src="image/ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
+</p>
 
-API Flask de classification video/audio basee sur recherche vectorielle Weaviate.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Weaviate-5A67D8?style=for-the-badge"/>
+</p>
 
-## Fonctionnalites
+---
 
-- Vectorisation audio avec Wav2Vec2.
-- Vectorisation video avec CLIP.
-- Indexation Weaviate dans 2 collections:
-  - VideoEmbeddings
-  - AudioEmbeddings
-- Classification par similarite (k-NN) avec sortie detaillee:
-  - action_class
-  - predicted_type
-  - violence_classification
-  - confidence
-  - search_results complets
+## 🧠 Présentation
 
-## Prerequis
+**SafeCall** est une API intelligente qui analyse des vidéos et audios afin de détecter automatiquement des situations critiques comme la violence ou les urgences médicales.
 
-- Python 3.10+
-- Docker + Docker Compose
-- ffmpeg installe sur la machine (accessible en ligne de commande)
+---
 
-## Installation
+## 🧩 Use Case
 
-1. Creer/activer un environnement virtuel.
-2. Installer les dependances Python:
+<p align="center">
+  <img src="image/use_case.png" alt="Use Case SafeCall" width="850"/>
+</p>
+
+Le système suit ce flux :
+
+- 📥 L’utilisateur envoie une vidéo ou un audio
+- ⚙️ Le backend analyse le contenu
+- 🔍 Recherche de similarité dans la base
+- 🧠 Classification intelligente
+- 📤 Retour du résultat avec un score de confiance
+
+---
+
+## 🧠 Architecture détaillée
+
+<p align="center">
+  <img src="image/ARCHITECTURE.png" alt="Architecture SafeCall" width="850"/>
+</p>
+
+### 🔄 Pipeline complet
+
+1. **Entrée**
+   - Vidéo / audio uploadé via API
+
+2. **Extraction**
+   - Audio → Wav2Vec2
+   - Vidéo → CLIP
+
+3. **Vectorisation**
+   - Transformation en embeddings
+
+4. **Stockage**
+   - Weaviate
+   - `VideoEmbeddings`
+   - `AudioEmbeddings`
+
+5. **Recherche**
+   - Similarité (k-NN)
+   - Comparaison avec données existantes
+
+6. **Classification**
+   - violent / non violent
+   - type d’action
+
+7. **Sortie**
+   - Résultat JSON avec confidence
+
+---
+
+## 🛠️ Stack technique
+
+- Python
+- Flask
+- PyTorch
+- CLIP
+- Wav2Vec2
+- Weaviate
+- Docker
+- ffmpeg
+
+---
+
+## ⚙️ Installation
 
 ```bash
 pip install -r requirement.txt
-```
-
-## Structure importante
-
-- safecallback.py: API Flask (classification)
-- weaviate1.py: ingestion dataset vers Weaviate
-- docker-compose.yml: services Weaviate
-- violent-action-classes.csv
-- nonviolent-action-classes.csv
-- action-class-occurrences.csv
-
-## Lancer le projet
-
-### 1) Demarrer Weaviate
-
-```bash
+🚀 Lancement
 docker-compose up -d
-```
-
-### 2) Ingerer les donnees dans Weaviate
-
-```bash
 python weaviate1.py
-```
-
-### 3) Demarrer l'API
-
-```bash
 python safecallback.py
-```
-
-API disponible sur:
-
-- http://localhost:5000
-
-## Utilisation de l'API
-
-### Health check
-
-```bash
+ Health check
 curl.exe "http://localhost:5000/health"
-```
-
-### Classifier un fichier video/audio
-
-```bash
-curl.exe -X POST "http://localhost:5000/classify-action" -F "file=@C:/chemin/vers/fichier.mp4"
-```
-
-### Endpoint alternatif (meme logique)
-
-```bash
-curl.exe -X POST "http://localhost:5000/classify" -F "file=@C:/chemin/vers/fichier.mp4"
-```
-
-## Exemple de reponse
-
-```json
-{
+Classification
+curl.exe -X POST "http://localhost:5000/classify-action" -F "file=@video.mp4"
+ 📤 Exemple de réponse
+ {
   "success": true,
   "file": "exemple.mp4",
   "action_class": "fight",
   "predicted_type": "violent",
-  "violence_classification": "violent",
   "confidence": 0.86,
   "search_results": [
     {
-      "source_collection": "VideoEmbeddings",
-      "file": "violent/cam1/xxx.mp4",
-      "action": "fight",
-      "type": "violent",
-      "distance": 0.15,
-      "similarity": 0.86
+      "similarity": 0.86,
+      "distance": 0.15
     }
-  ],
-  "total_request_time_seconds": 4.9
+  ]
 }
-```
+📊 Analyse par similarité
 
-## Notes
+Le système fonctionne avec une logique vectorielle :
 
-- Le premier appel peut etre plus lent (chargement modele).
-- Si CUDA est disponible, PyTorch peut utiliser le GPU.
-- Les fichiers uploades ne sont pas inseres dans Weaviate pendant la classification.
+🟢 Forte similarité → confiance élevée
+🟡 Moyenne → incertitude
+🔴 Faible → faible confiance
+
+👉 Plus la distance est faible, plus le cas est similaire.
+
+📝 Notes
+Le premier appel peut être lent (chargement des modèles)
+GPU recommandé pour accélérer les calculs
+Les fichiers uploadés ne sont pas stockés dans la base
+<p align="center"> ⚡ SafeCall — Analyse intelligente pour la sécurité en temps réel </p> ```
